@@ -1,15 +1,13 @@
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <stdbool.h>
+#include "sorts.h"
+#include "utils.h"
 
 #define WIDTH 800
 #define HEIGHT 600
 
 
-int main(void) {
+int main(int argc, char *argv[]) {
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "SDL init error: %s\n", SDL_GetError());

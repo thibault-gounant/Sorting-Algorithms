@@ -6,8 +6,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/binaries)
 
 add_subdirectory(libraries/SDL2)
 
-include_directories(${SDL2_INCLUDE_DIRS})
+include_directories(${PROJECT_SOURCE_DIR}/headers ${SDL2_INCLUDE_DIRS})
 
-add_executable(${PROJECT_NAME} ./sources/main.c)
+aux_source_directory(./sources/sorts SORTS)
+aux_source_directory(./sources/utils UTILS)
+
+add_executable(${PROJECT_NAME} ./sources/main.c ${SORTS} ${UTILS})
+add_executable(${PROJECT_NAME}_tests ./tests/test.c ${SORTS} ${UTILS})
 
 target_link_libraries(${PROJECT_NAME} SDL2::SDL2-static)
+target_link_libraries(${PROJECT_NAME}_tests SDL2::SDL2-static)
+
+enable_testing()
+add_test(NAME bubble_sort_tests COMMAND ${PROJECT_NAME}_tests 1)

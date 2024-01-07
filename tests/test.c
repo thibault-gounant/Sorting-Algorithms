@@ -95,6 +95,10 @@ int main(int argc, char *argv[]) {
             printf("Bubble sort\n");
             test_runner(&bubble_sort);
             break;
+        case INSERTION_SORT:
+            printf("Insertion sort\n");
+            test_runner(&insertion_sort);
+            break;
         default:
             print_usage(argv);
             return EXIT_FAILURE;

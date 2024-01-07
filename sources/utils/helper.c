@@ -4,6 +4,7 @@
 void print_usage(const char *argv[]) {
     fprintf(stderr, "Usage: %s <algorithm>\n", argv[0]);
     fprintf(stderr, "1 - Bubble sort\n");
+    fprintf(stderr, "2 - Insertion sort\n");
 }
 
 void print_test_result(const bool result, const char message[]) {

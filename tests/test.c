@@ -99,6 +99,10 @@ int main(int argc, char *argv[]) {
             printf("Insertion sort\n");
             test_runner(&insertion_sort);
             break;
+        case SELECTION_SORT:
+            printf("Selection sort\n");
+            test_runner(&selection_sort);
+            break;
         default:
             print_usage(argv);
             return EXIT_FAILURE;

@@ -103,6 +103,10 @@ int main(int argc, char *argv[]) {
             printf("Selection sort\n");
             test_runner(&selection_sort);
             break;
+        case MERGE_SORT:
+            printf("Merge sort\n");
+            test_runner(&merge_sort);
+            break;
         default:
             print_usage(argv);
             return EXIT_FAILURE;

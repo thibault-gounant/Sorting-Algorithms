@@ -105,6 +105,10 @@ int main(int argc, char *argv[]) {
             printf("4 - Merge sort\n");
             test_runner(&merge_sort);
             break;
+        case QUICK_SORT:
+            printf("5 - Quick sort\n");
+            test_runner(&quick_sort);
+            break;
         default:
             print_usage(argv);
             return EXIT_FAILURE;

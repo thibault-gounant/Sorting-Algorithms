@@ -7,6 +7,7 @@ void print_usage(const char *argv[]) {
     fprintf(stderr, " - number 2 for insertion sort\n");
     fprintf(stderr, " - number 3 for selection sort\n");
     fprintf(stderr, " - number 4 for merge sort\n");
+    fprintf(stderr, " - number 5 for quick sort\n");
 }
 
 void print_test_result(const bool result, const char message[]) {

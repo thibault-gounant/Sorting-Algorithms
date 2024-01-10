@@ -8,11 +8,13 @@ enum Sorts {
     INSERTION_SORT = 2,
     SELECTION_SORT = 3,
     MERGE_SORT = 4,
+    QUICK_SORT = 5
 };
 
 void bubble_sort(Graphics* graphics, int array[], const size_t size);
 void insertion_sort(Graphics* graphics, int array[], const size_t size);
 void selection_sort(Graphics* graphics, int array[], const size_t size);
 void merge_sort(Graphics* graphics, int array[], const size_t size);
+void quick_sort(Graphics* graphics, int array[], const size_t size);
 
 #endif

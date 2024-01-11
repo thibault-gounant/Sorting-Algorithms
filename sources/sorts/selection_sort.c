@@ -1,6 +1,6 @@
 #include "utils.h"
 
-void selection_sort(int array[], const size_t size) {
+void selection_sort(int array[], const size_t size, SDL_Renderer* renderer) {
     for (int i = 0; i < size; ++i) {
         int index = i;
         for (int j = i + 1; j < size; ++j) {
@@ -10,6 +10,7 @@ void selection_sort(int array[], const size_t size) {
         }
         if (index != i) {
             swap(&array[i], &array[index]);
+            draw(array, size, renderer);
         }
     }
 }

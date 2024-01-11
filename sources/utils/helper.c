@@ -1,6 +1,5 @@
 #include "utils.h"
 
-
 void print_usage(const char *argv[]) {
     fprintf(stderr, "Usage: %s <algorithm>\n", argv[0]);
     fprintf(stderr, "1 - Bubble sort\n");
@@ -28,4 +27,31 @@ void swap(int *a, int *b) {
     int temp = *a;
     *a = *b;
     *b = temp;
+}
+
+int min(const int array[], const size_t size) {
+    int min = array[0];
+    for (int i = 1; i < size; ++i) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+    return min;
+}
+
+int max(const int array[], const size_t size) {
+    int max = array[0];
+    for (int i = 1; i < size; ++i) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
+}
+
+void random(int array[], const size_t size, const int low, const int high) {
+    srand(time(NULL));
+    for (int i = 0; i < size; ++i) {
+        array[i] = low + rand() % (1 + high - low);
+    }
 }

@@ -1,15 +1,43 @@
 #define SDL_MAIN_HANDLED
-#include <SDL2/SDL.h>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
-#define WIDTH 800
-#define HEIGHT 600
-
+#include "sorts.h"
+#include "utils.h"
 
 int main(int argc, char* argv[]) {
+
+    if (argc != 2) {
+        print_usage(argv);
+        return EXIT_FAILURE;
+    }
+
+    void (*sort)(int[], size_t, SDL_Renderer*);
+    const int algorithm = atoi(argv[1]);
+
+    switch (algorithm) {
+        case BUBBLE_SORT:
+            printf("Bubble sort\n");
+            sort = &bubble_sort;
+            break;
+        case INSERTION_SORT:
+            printf("Insertion sort\n");
+            sort = &insertion_sort;
+            break;
+        case SELECTION_SORT:
+            printf("Selection sort\n");
+            sort = &selection_sort;
+            break;
+        case MERGE_SORT:
+            printf("Merge sort\n");
+            sort = &merge_sort;
+            break;
+        case QUICK_SORT:
+            printf("Quick sort\n");
+            sort = &quick_sort;
+            break;
+        default:
+            print_usage(argv);
+            return EXIT_FAILURE;
+    }
 
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         fprintf(stderr, "SDL init error: %s\n", SDL_GetError());
@@ -31,6 +59,10 @@ int main(int argc, char* argv[]) {
         return EXIT_FAILURE;
     }
 
+    int array[SIZE];
+    random(array, SIZE, 0, HEIGHT);
+    bool sorted = false;
+
     SDL_Event event;
     bool running = true;
     while (running) {
@@ -39,9 +71,14 @@ int main(int argc, char* argv[]) {
                 running = false;
         }
 
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
-        SDL_RenderClear(renderer);
-        SDL_RenderPresent(renderer);
+        if (!sorted) {
+            sorted = is_sorted(array, SIZE);
+        }
+        if (!sorted) {
+            sort(array, SIZE, renderer);
+        }
+
+        draw(array, SIZE, renderer);
     }
 
     SDL_DestroyRenderer(renderer);

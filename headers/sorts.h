@@ -11,10 +11,10 @@ enum Sorts {
     QUICK_SORT = 5,
 };
 
-void bubble_sort(int array[], const size_t size);
-void insertion_sort(int array[], const size_t size);
-void selection_sort(int array[], const size_t size);
-void merge_sort(int array[], const size_t size);
-void quick_sort(int array[], const size_t size);
+void bubble_sort(int array[], const size_t size, SDL_Renderer* renderer);
+void insertion_sort(int array[], const size_t size, SDL_Renderer* renderer);
+void selection_sort(int array[], const size_t size, SDL_Renderer* renderer);
+void merge_sort(int array[], const size_t size, SDL_Renderer* renderer);
+void quick_sort(int array[], const size_t size, SDL_Renderer* renderer);
 
 #endif

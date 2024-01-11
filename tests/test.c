@@ -5,57 +5,56 @@
 
 #include <assert.h>
 
-
-static bool empty_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool empty_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool single_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool single_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {0};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool ascending_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool ascending_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {0,1,2,3,4,5,6,7,8,9};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool descending_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool descending_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {9,8,7,6,5,4,3,2,1,0};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool negative_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool negative_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {0,1,-2,3,4,-5,6,7,-8,9};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool duplicate_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool duplicate_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {0,1,7,3,4,4,6,7,2,9};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static bool randomize_array_is_sorted(void (*algorithm)(int[], size_t)) {
+static bool randomize_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {5,1,4,9,2,0,6,7,8,3};
     const size_t size = size(array);
-    (algorithm)(array, size);
+    (algorithm)(array, size, NULL);
     return is_sorted(array, size);
 }
 
-static void test_runner(void (*algorithm)(int[], size_t)) {
+static void test_runner(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
 
     bool empty = empty_array_is_sorted(algorithm);
     print_test_result(empty, "Empty array\n");

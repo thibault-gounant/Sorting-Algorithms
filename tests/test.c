@@ -5,6 +5,12 @@
 
 #include <assert.h>
 
+void print_test_result(const bool result, const char message[]) {
+    result ?
+    fprintf(stdout, "\033[0;32m✅ PASS\033[0m\t%s", message) :
+    fprintf(stderr, "\033[1;31m❌ FAIL\033[0m\t%s", message);
+}
+
 static bool empty_array_is_sorted(void (*algorithm)(int[], size_t, SDL_Renderer*)) {
     int array[] = {};
     const size_t size = size(array);
@@ -109,6 +115,10 @@ int main(int argc, char *argv[]) {
         case QUICK_SORT:
             printf("Quick sort\n");
             test_runner(&quick_sort);
+            break;
+        case COUNTING_SORT:
+            printf("Counting sort\n");
+            test_runner(&counting_sort);
             break;
         default:
             print_usage(argv);

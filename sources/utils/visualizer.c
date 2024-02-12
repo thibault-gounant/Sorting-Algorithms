@@ -37,8 +37,10 @@ void draw(int array[], const size_t size, SDL_Renderer* renderer) {
 
             SDL_Color color = hsv2rgb(hue, saturation, value);
 
+            const int maximum_value = max(array, size);
+
             const float width = (float) WIDTH / size;
-            const float height = (float) HEIGHT * array[i] / max(array, size);
+            const float height = (float) HEIGHT * array[i] / maximum_value;
 
             SDL_Rect rect = {
                 .x = width * i,

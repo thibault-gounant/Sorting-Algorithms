@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.28)
 project(Sorting-Algorithms C)
 
 set(CMAKE_C_STANDARD 11)
@@ -23,3 +23,4 @@ add_test(NAME insertion_sort_tests COMMAND ${PROJECT_NAME}_tests 2)
 add_test(NAME selection_sort_tests COMMAND ${PROJECT_NAME}_tests 3)
 add_test(NAME merge_sort_tests COMMAND ${PROJECT_NAME}_tests 4)
 add_test(NAME quick_sort_tests COMMAND ${PROJECT_NAME}_tests 5)
+add_test(NAME counting_sort_tests COMMAND ${PROJECT_NAME}_tests 6)

@@ -7,12 +7,7 @@ void print_usage(const char *argv[]) {
     fprintf(stderr, "3 - Selection sort\n");
     fprintf(stderr, "4 - Merge sort\n");
     fprintf(stderr, "5 - Quick sort\n");
-}
-
-void print_test_result(const bool result, const char message[]) {
-    result ?
-    fprintf(stdout, "\033[0;32m✅ PASS\033[0m\t%s", message) :
-    fprintf(stderr, "\033[1;31m❌ FAIL\033[0m\t%s", message);
+    fprintf(stderr, "6 - Counting sort\n");
 }
 
 bool is_sorted(const int array[], const size_t size) {

@@ -34,6 +34,10 @@ int main(int argc, char* argv[]) {
             printf("Quick sort\n");
             sort = &quick_sort;
             break;
+        case COUNTING_SORT:
+            printf("Counting sort\n");
+            sort = &counting_sort;
+            break;
         default:
             print_usage(argv);
             return EXIT_FAILURE;
